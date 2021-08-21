@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<body hx-sse="connect:/rn-updates">
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header">Featured Random Number</div>
+    <div class="card-body">
+        <h5 class="card-title">The Random Number is..</h5>
+        <p class="card-text" 
+           hx-trigger="sse:number"
+           hx-get="/random">
+            <span>@Number.Value</span>
+        </p>
+    </div>
+</div>
+</body>
